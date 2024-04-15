@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <title>Knight Bootstrap Template - Index</title>
+    <meta content="" name="description" />
+    <meta content="" name="keywords" />
+
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon" />
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+      rel="stylesheet"
+    />
+
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+    <link
+      href="assets/vendor/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
+    <link
+      href="assets/vendor/glightbox/css/glightbox.min.css"
+      rel="stylesheet"
+    />
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+
+    <!-- Template Main CSS File -->
+    <link href="assets/css/style.css" rel="stylesheet" />
+
+    <!-- =======================================================
+  * Template Name: Knight
+  * Template URL: https://bootstrapmade.com/knight-free-bootstrap-theme/
+  * Updated: Mar 17 2024 with Bootstrap v5.3.3
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+  </head>
+  <body>
+    <form id="loginForm">
+      <input id="email" name="email" placeholder="email" />
+      <input
+        id="password"
+        name="password"
+        placeholder="password"
+        type="password"
+      />
+      <button>Login</button>
+    </form>
+
+    <p id="errorMessage"></p>
+  </body>
+
+  <script>
+    const form = document.getElementById("loginForm");
+    const errorMessage = document.getElementById("errorMessage");
+    errorMessage.innerText = "";
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      console.log("yo");
+      const formData = new FormData(e.currentTarget);
+      const data = Object.fromEntries(formData);
+      fetch("http://localhost:7000/api/user/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      }).then((res) => {
+        res.json().then((resData) => {
+          if (resData?.message) {
+            errorMessage.innerText = resData?.message;
+          }
+          if(resData?.token){
+            localStorage.setItem("token",resData?.token)
+            window.location.href="/levels.html"
+          }
+        });
+      });
+    });
+  </script>
+</html>

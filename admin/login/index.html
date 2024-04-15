@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--=============== REMIXICONS ===============-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css"
+      crossorigin=""
+    />
+
+    <!--=============== CSS ===============-->
+    <link rel="stylesheet" href="/assets/css/style.css" />
+
+    <title>LOGIN | TECHNOVA 6.0</title>
+  </head>
+  <body>
+    <div
+      class="login"
+      style="
+        background-image: linear-gradient(
+          0deg,
+          rgba(94, 58, 238, 1) 0%,
+          rgba(197, 107, 240, 1) 100%
+        );
+      "
+    >
+      <!-- <img src="/assets\img\login-bg.png" alt="image" class="login__bg"> -->
+
+      <form action="" class="login__form">
+        <h1 class="login__title">Login</h1>
+
+        <div class="login__inputs">
+          <div class="login__box">
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Email ID"
+              required
+              class="login__input"
+            />
+            <i class="ri-mail-fill"></i>
+          </div>
+
+          <div class="login__box">
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Password"
+              required
+              class="login__input"
+            />
+            <i class="ri-lock-2-fill"></i>
+          </div>
+        </div>
+
+        <button class="login__button">Login</button>
+
+        <div class="login__register">
+          <!-- Don't have an account? <a href="signup.html">Register</a> -->
+        </div>
+        <p id="errorMessage"></p>
+      </form>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const form = document.querySelector(".login__form");
+        const errorMessage = document.getElementById("errorMessage");
+        errorMessage.innerText = "";
+        form.addEventListener("submit", (e) => {
+          e.preventDefault();
+          console.log("yo");
+          const formData = new FormData(e.currentTarget);
+          const data = Object.fromEntries(formData);
+          console.log(data);
+          fetch("http://localhost:7000/api/admin/loginadmin", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data),
+          }).then((res) => {
+            res.json().then((resData) => {
+              if (resData?.message) {
+                errorMessage.innerText = resData?.message;
+              }
+              if (resData?.token) {
+                localStorage.setItem("adminToken", resData?.token);
+                window.location.href = "/admin";
+              }
+            });
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

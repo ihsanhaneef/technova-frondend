@@ -1,0 +1,347 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <title>LEVELS | TECHNOVA 6.0</title>
+    <meta content="" name="description" />
+    <meta content="" name="keywords" />
+
+    <!-- Favicons -->
+    <link href="/assets/img/favicon.png" rel="icon" />
+    <link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+      rel="stylesheet"
+    />
+
+    <!-- Vendor CSS Files -->
+    <link href="/assets/vendor/aos/aos.css" rel="stylesheet" />
+    <link
+      href="/assets/vendor/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="/assets/vendor/bootstrap-icons/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link
+      href="/assets/vendor/boxicons/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="/assets/vendor/glightbox/css/glightbox.min.css"
+      rel="stylesheet"
+    />
+    <link href="/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+
+    <!-- Template Main CSS File -->
+    <link href="/assets/css/style.css" rel="stylesheet" />
+    <style>
+      .sub-menu li {
+        display: block;
+        border-radius: 30px;
+      }
+
+      .sub-menu li a {
+        display: block;
+        color: black;
+        margin-right: 0;
+        padding: 8px 30px;
+        border-radius: 30px;
+      }
+
+      .sub-menu li a:after {
+        display: none;
+      }
+
+      .sub-menu li a:hover {
+        color: #ffffff;
+      }
+      .table-container {
+        border: 2px solid #ccc;
+        border-radius: 10px;
+        overflow: hidden;
+        width: 80%; /* Adjust the width as needed */
+        margin: 0 auto; /* Center the container */
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      thead {
+        background-color: #f2f2f2;
+      }
+
+      thead td {
+        font-weight: bold;
+        padding: 10px;
+      }
+
+      tbody td {
+        padding: 8px;
+        border-bottom: 1px solid #ddd;
+        color: rgb(255, 255, 255);
+      }
+
+      tbody td:last-child {
+        text-align: center;
+      }
+
+      tbody tr:last-child td {
+        border-bottom: none;
+      }
+
+      tbody tr:hover {
+        background-color: #73e192;
+        
+
+        
+      }
+      .cont-check {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -100PX;
+  gap: 20px;
+}
+
+.checkbox-label,
+.radio-label {
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: #fff7f7;
+  border: 2px solid #aaa;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 10px;
+  /* padding-right: 100p; */
+
+}
+
+.checkbox-label::after,
+.radio-label::after {
+  content: '';
+  position: absolute;
+  display: none;
+}
+
+.checkbox-label::after {
+  left: 6px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid #000;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.radio-label::after {
+  content: '';
+  left: 5px;
+  top: 5px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #000;
+}
+
+#approvalInput,
+#levelInput {
+  display: none;
+}
+
+#approvalInput:checked + .checkbox-label::after,
+#levelInput:checked + .radio-label::after {
+  display: block;
+}
+
+
+    </style>
+  </head>
+  <body>
+    <!-- ======= Header ======= -->
+    <header id="header" class="d-flex align-items-center">
+      <div class="container d-flex align-items-center justify-content-between">
+        <div class="logo">
+          <a href="index.html"
+            ><img src="/assets/img/logo.png" alt="" class="img-fluid"
+          /></a>
+        </div>
+
+        <nav id="navbar" class="navbar">
+          <ul>
+            <li class="score-card" style="width: 100px; margin-left: 10px; height: 40px; text-align: center;"><div id="score" style="margin-top: -2px;">--</div></li>
+
+            <li><a class="nav-link scrollto active" href="/admin/index.html">Home</a></li>
+
+            <li>
+              <a class="nav-link scrollto" href="#" id="logout">logout</a>
+            </li>
+          </ul>
+          <!-- <li><a class="nav-link scrollto" href="#contact">Contact</a></li> -->
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav>
+        <!-- .navbar -->
+      </div>
+    </header>
+  </body>
+  <section id="card-section" style="align-items: center">
+    <div style="min-height: 10rem">
+      <h2 style="color: white; text-align: center">
+        User details of
+        <p id="userdetails" style="display: inline"></p>
+    </div>
+
+    <!-- <div >
+      Qualified for protected levels
+      <input id="approvalInput" type="checkbox" />
+    </div> -->
+    <div class="cont-check">
+      <span>Qualified for protected levels</span>
+      <input id="approvalInput" type="checkbox" />
+      <label for="approvalInput" class="checkbox-label"></label>
+    </div>
+
+    <div class="table-container">
+      <table>
+        <thead >
+          <td>Level</td>
+          <td>Round</td>
+          <td id="score">Score</td>
+        </thead>
+        <tbody id="tableBody">
+          
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <script>
+    const token = localStorage.getItem("adminToken");
+
+    function logout() {
+      localStorage.removeItem("adminToken");
+      window.location.href = "/admin/login";
+    }
+    document.getElementById("logout").addEventListener("click", logout);
+
+    if (!token) {
+      logout();
+    }
+
+    var currentUrl = window.location.href;
+    var url = new URL(currentUrl);
+    var userId = url.searchParams.get("userId");
+
+    const approvalInput = document.getElementById("approvalInput");
+
+    fetch("http://localhost:7000/api/admin/profile", {
+      headers: { authorization: token },
+    }).then((r) => {
+      r.json().then((data) => {
+        if (!data?.admin) {
+          logout();
+        }
+      });
+    });
+
+    fetch(`http://localhost:7000/api/admin/user/${userId}`, {
+      headers: { authorization: token },
+    }).then((r) => {
+      r.json().then((data) => {
+        if (data?.qualified) {
+          const totalScore = data?.user.roundsCompleted.reduce((acc, curr) => {
+            return acc + curr.score;
+          }, 0);
+          if (totalScore >= data?.QUALIFICATION_SCORE) {
+            approvalInput.style = "display:none;";
+          }
+
+          approvalInput.setAttribute("checked", "true");
+        }
+
+        //total score
+        const totalScore = data?.user?.roundsCompleted
+          ?.map((scores) => scores?.score)
+          ?.reduce((prev, curr) => prev + curr, 0);
+
+        document.getElementById("score").innerHTML = totalScore;
+       
+
+
+
+
+
+
+        //
+        const detailsP = document.getElementById("userdetails");
+        detailsP.innerText = data?.user?.email;
+
+        const tableBody = document.getElementById("tableBody");
+        const sortedRoundLevel = data?.user?.roundsCompleted
+          ?.sort((a, b) => a.round - b.round)
+          .sort((a, b) => a.level - b.level);
+        const rounds = [
+          { level: 1, round: 1, name: "MCQ" },
+          { level: 1, round: 2, name: "JIGSAW PUZZLE" },
+          { level: 1, round: 3, name: "CROSS WORDS" },
+          { level: 2, round: 1, name: "PICTURE TO CODE" },
+          { level: 2, round: 2, name: "HIDDEN MESSAGE" },
+          { level: 2, round: 3, name: " CRACK THE CIPHER" },
+          { level: 3, round: 1, name: "LOCATION GUESSER" },
+          { level: 4, round: 1, name: "ADD LEVEL4 S1" },
+          { level: 4, round: 2, name: "ADD LEVEL4 S2" },
+          { level: 4, round: 3, name: "ADD LEVEL4 S2" },
+          { level: 5, round: 1, name: "ADD LEVEL5 S1" },
+          { level: 5, round: 2, name: "ADD LEVEL5 S2" },
+          { level: 5, round: 3, name: "ADD LEVEL5 S3" },
+        ];
+
+        rounds?.map((round) => {
+          //    <tr>
+          //     <td>1</td>
+          //     <td>1</td>
+          //     <td>11</td>
+          //   </tr>
+          const datas = data?.user?.roundsCompleted?.find(
+            (r) => r.round == round.round && r.level == round.level
+          );
+          const TR = document.createElement("tr");
+
+          const levelTD = document.createElement("td");
+          levelTD.innerText = round?.level;
+          TR.appendChild(levelTD);
+
+          const roundTD = document.createElement("td");
+          roundTD.innerText = round?.name;
+          TR.appendChild(roundTD);
+
+          const scoreTD = document.createElement("td");
+          scoreTD.innerText = datas?.score ?? 0;
+          TR.appendChild(scoreTD);
+          tableBody.append(TR);
+        });
+      });
+    });
+
+    approvalInput.addEventListener("change", (e) => {
+      console.log(e.target.checked);
+      fetch(`http://localhost:7000/api/admin/user/${userId}`, {
+        method: "POST",
+        headers: { authorization: token, "Content-Type": "application/json" },
+        body: JSON.stringify({ qualified: e.target?.checked }),
+      }).then((r) => {
+        r.json().then((data) => {
+          console.log(data);
+        });
+      });
+    });
+  </script>
+</html>

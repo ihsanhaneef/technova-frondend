@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Error Message Dialog Box</title>
+  <style>
+    /* Style for the button */
+    .error-button {
+      padding: 10px 20px;
+      background-color: #f44336;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    /* Style for the error message dialog box */
+    .error-dialog {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #f44336;
+      color: white;
+      padding: 20px;
+      border-radius: 5px;
+      z-index: 1000; /* Ensure it appears on top of other elements */
+    }
+
+    /* Style for the exit button */
+    .exit-button {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      background-color: transparent;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+  <script>
+    function displayError() {
+      var errorDialog = document.getElementById('error-dialog');
+      errorDialog.style.display = 'block';
+    }
+
+    function closeErrorDialog() {
+      var errorDialog = document.getElementById('error-dialog');
+      errorDialog.style.display = 'none';
+    }
+  </script>
+</head>
+<body>
+
+<button class="error-button" onclick="displayError()">Click Me for Error</button>
+
+<div id="error-dialog" class="error-dialog">
+  <button class="exit-button" onclick="closeErrorDialog()">X</button>
+  <p>An error occurred. Please try again later.</p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Technova</title>
+    <link href="assets/css/style.css" rel="stylesheet" />
+    <style>
+
+      h1 {
+        text-align: center;
+        color: #333;
+      }
+      .question {
+        margin-bottom: 20px;
+      }
+      .question p {
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+      .options {
+        margin-left: 20px;
+      }
+      .options label {
+        display: block;
+        margin-bottom: 5px;
+      }
+      input[type="radio"] {
+        margin-right: 10px;
+      }
+      input[type="submit"] {
+        display: block;
+        margin: 20px auto;
+        padding: 10px 20px;
+        background-color: #4caf50;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      input[type="submit"]:hover {
+        background-color: #45a049;
+      }
+      .redirect-button {
+        background-color: #e74c3c;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        text-decoration: none;
+        font-size: 16px;
+        margin-top: 20px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        /* padding-bottom: 200PX; */
+      }
+
+      .redirect-button:hover {
+        background-color: #c0392b;
+      }
+      .img {
+        align-items: center;
+        /* justify-content: end; */
+        display: flex;
+      }
+      input[type="submit"] {
+        display: block;
+        margin: 20px auto;
+        padding: 10px 20px;
+        background-color: #4caf50;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      input[type="submit"]:hover {
+        background-color: #45a049;
+      }
+      #verificationCode {
+        width: 300px;
+        padding: 10px;
+        border: 2px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+      }
+
+      #verificationCode:focus {
+        outline: none;
+        border-color: #007bff; /* Change border color on focus */
+      }
+    </style>
+  </head>
+  <body>
+    <header id="header" class="d-flex align-items-center">
+      <div class="container d-flex align-items-center justify-content-between">
+        <div class="logo" style="padding-top: 10px; padding-left: 30px;">
+          <a href="index.html"
+            ><img src="assets/img/logo.png" alt="" class="img-fluid"/></a>
+        </div>
+
+        <nav id="navbar" class="navbar">
+          <ul class="stageul" style="padding-top: -50px;">
+            <li class="stageli"><a class="nav-link scrollto active" href="levels.html">Dashboard</a></li>
+            <li><a class="nav-link scrollto active" href="level2.html">Level 2</a></li>
+
+          </ul>
+          <!-- <li><a class="nav-link scrollto" href="#contact">Contact</a></li> -->
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav>
+        <!-- .navbar -->
+      </div>
+    </header>
+    
+    <div class="containerlevels" style="padding-top: 20px">
+      <h2 style="text-align: center">Crack the Cipher</h2>
+      In the mystical realm of Blackwood Creek, nestled amid the Cinder Valley,
+      a cryptic force known as Sauron lay veiled in ancient secrecy. Ouroboros,
+      a daring young adventurer, unraveled the enigma when he chanced upon a
+      concealed portal during his exploration. Crossing its threshold, he found
+      himself in front of a mesmerizing scroll of colors pictured in elusive
+      patterns—a message, that resonated a hidden meaning. Driven by an
+      insatiable curiosity, Ouroboros embarked on a quest to decipher the
+      cryptic scroll. Each revelation bound him closer to the mystical forces of
+      Sauron, forever altering the destiny of Blackwood Creek. As the guardians,
+      the authors of the scroll, observed, they recognized Ouroboros as the
+      chosen one fated to unveil the cipher's full meaning.
+
+      <br />
+      <br />
+      <a
+        href="https://res.cloudinary.com/dh7c22gw9/image/upload/v1709406039/assets/images/level2_task3_img_bx13r9.png"
+        target="_blank"
+        id="toggle-ide"
+        class="redirect-button"
+        >Cipher</a
+      >
+      <br /><br />
+    </div>
+    <section>
+      <div style="padding-top: 3%">
+        <!-- Verification form -->
+        <div class="containerv">
+          <form class="verification-form" id="codeVerificationForm">
+            <label for="verificationCode">Enter the verification code:</label>
+            <input
+              type="text"
+              id="verificationCode"
+              name="verificationCode"
+              placeholder="Enter code"
+            />
+            <!-- Display error message for wrong code -->
+            <span id="errorMessage" style="color: red"></span> <br />
+            <p>enter answer in format: insight{answer}</p>
+            <button id="endTaskButton" class="redirect-button">End Task</button>
+          </form>
+        </div>
+      </div>
+    </section>
+    
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        document
+          .getElementById("codeVerificationForm")
+          .addEventListener("submit", function (e) {
+            e.preventDefault();
+            const formData = new FormData(e.currentTarget);
+            const quizData = {};
+            quizData["level"] = 2;
+            quizData["round"] = 3;
+            formData.forEach((value, key) => {
+              quizData[key] = value;
+            });
+            const errorMsg = document.getElementById("errorMessage");
+            errorMsg.innerHTML = "";
+            fetch("http://localhost:7000/api/quiz/evaluate", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                authorization: localStorage.getItem("token"),
+              },
+              body: JSON.stringify(quizData),
+            })
+              .then((response) => response.json())
+              .then((data) => {
+                if (data?.message) {
+                  errorMsg.innerHTML = data.message;
+                  return;
+                }
+                window.location.href = "level2.html";
+              })
+              .catch((error) => console.error("Error:", error));
+          });
+      });
+    </script>
+  </body>
+</html>

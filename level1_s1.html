@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Computer Science MCQ Quiz</title>
+    <link href="assets/css/style.css" rel="stylesheet" />
+    <style>
+
+      h1 {
+        text-align: center;
+        color: #333;
+      }
+      .question {
+        margin-bottom: 20px;
+      }
+      .question p {
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+      .options {
+        margin-left: 20px;
+      }
+      .options label {
+        display: block;
+        margin-bottom: 5px;
+      }
+      input[type="radio"] {
+        margin-right: 10px;
+      }
+      input[type="submit"] {
+        display: block;
+        margin: 20px auto;
+        padding: 10px 20px;
+        background-color: #4caf50;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      input[type="submit"]:hover {
+        background-color: #45a049;
+      }
+      .navbar ul {
+    margin: -36px;
+    display: flex;
+    list-style: none;
+    align-items: center;
+    padding-left: 80%;
+    color: white;
+    font-weight: bold;
+}
+.navbar a:hover,
+.navbar .active,
+.navbar .active:focus,
+.navbar li:hover>a {
+  color: rgb(0, 0, 0);
+}
+
+    
+    </style>
+
+  </head>
+  
+  <body>
+    <header id="header" class="d-flex align-items-center">
+      <div class="container d-flex align-items-center justify-content-between">
+        <div class="logo" style="padding-top: 10px; padding-left: 30px;">
+          <a href="index.html"
+            ><img src="assets/img/logo.png" alt="" class="img-fluid"/></a>
+        </div>
+
+        <nav id="navbar" class="navbar">
+          <ul class="stageul" style="padding-top: -50px;">
+            <li class="stageli"><a class="nav-link scrollto active" href="levels.html">Dashboard</a></li>
+            <li><a class="nav-link scrollto active" href="level1.html">Level 1</a></li>
+
+          </ul>
+          <!-- <li><a class="nav-link scrollto" href="#contact">Contact</a></li> -->
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav>
+        <!-- .navbar -->
+      </div>
+    </header>
+    <!-- <div style="padding-top: 20px">
+      <div class=""></div>
+      <a href="level1.html" class="redirect-button">Go to Levels</a>
+      <a href="levels.html" class="redirect-button">Dashboard</a>
+    </div> -->
+    <div class="containerlevels">
+      <h1>Computer Science MCQ Quiz</h1>
+      <form id="quizForm">
+        <div class="question">
+          <p>1. What does HTML stand for?</p>
+          <div class="options">
+            <label
+              ><input type="radio" name="q1" value="a" /> Hyper Text Markup
+              Language</label
+            >
+            <label
+              ><input type="radio" name="q1" value="b" /> Hyperlinks and Text
+              Markup Language</label
+            >
+            <label
+              ><input type="radio" name="q1" value="c" /> Home Tool Markup
+              Language</label
+            >
+          </div>
+        </div>
+        <!-- Add more questions similarly -->
+        <!-- Question 2 -->
+        <div class="question">
+          <p>2. Which programming language is used for web development?</p>
+          <div class="options">
+            <label><input type="radio" name="q2" value="a" /> Java</label>
+            <label><input type="radio" name="q2" value="b" /> C++</label>
+            <label><input type="radio" name="q2" value="c" /> JavaScript</label>
+          </div>
+        </div>
+        <!-- Add more questions similarly -->
+        <!-- Question 3 -->
+        <div class="question">
+          <p>3. What is the output of the following code snippet?</p>
+          <pre>
+                <code>
+                    for i in range(5):
+                        print(i)
+                </code>
+            </pre>
+          <div class="options">
+            <label><input type="radio" name="q3" value="a" /> 0 1 2 3 4</label>
+            <label><input type="radio" name="q3" value="b" /> 1 2 3 4 5</label>
+            <label><input type="radio" name="q3" value="c" /> 1 2 3 4</label>
+          </div>
+        </div>
+        <!-- Add more questions similarly -->
+        <!-- Submit button -->
+        <br />
+        <p style="display: bock; color: red; text-align: center">
+          ensure before submit. after submit Quiz button click can't alter the
+          data
+        </p>
+        <span id="errorMessage" style="color: red"></span>
+        <input type="submit" value="Submit Quiz" />
+      </form>
+      <div id="result"></div>
+    </div>
+
+    <script>
+      // testin
+      document.addEventListener("DOMContentLoaded", function () {
+        const quizForm = document.getElementById("quizForm");
+        const hasAttemptedQuiz = localStorage.getItem("hasAttemptedQuiz");
+
+        // Function to update selected options in session storage
+        function updateSelectedOptions() {
+          const formData = new FormData(quizForm);
+          const selectedOptions = {};
+          formData.forEach((value, key) => {
+            selectedOptions[key] = value;
+          });
+          localStorage.setItem(
+            "selectedOptions",
+            JSON.stringify(selectedOptions)
+          );
+          console.log("Stored selectedOptions:", selectedOptions); // Check stored data
+        }
+
+        // Pre-select the options if they exist in the session storage
+        if (hasAttemptedQuiz) {
+          const selectedOptions = JSON.parse(
+            localStorage.getItem("selectedOptions")
+          );
+          console.log("Retrieved selectedOptions:", selectedOptions); // Check retrieved data
+          for (const key in selectedOptions) {
+            if (selectedOptions.hasOwnProperty(key)) {
+              const selectedValue = selectedOptions[key];
+              const inputElement = document.querySelector(
+                `input[name=${key}][value=${selectedValue}]`
+              );
+              if (inputElement) {
+                inputElement.checked = true;
+              }
+            }
+          }
+        }
+
+        // Update selected options on change
+        quizForm.addEventListener("change", updateSelectedOptions);
+
+        quizForm.addEventListener("submit", function (event) {
+          event.preventDefault(); // Prevent form submission
+          console.log("here");
+          const formData = new FormData(this);
+          const quizData = {};
+          quizData["level"] = 1;
+          quizData["round"] = 1;
+
+          formData.forEach((value, key) => {
+            quizData[key] = value;
+          });
+          const errorMsg = document.getElementById("errorMessage");
+          errorMsg.innerHTML = "";
+
+          fetch("http://localhost:7000/api/quiz/evaluate", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              authorization: localStorage.getItem("token"),
+            },
+            body: JSON.stringify(quizData),
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              if (data?.message) {
+                //error message
+                errorMsg.innerHTML = data.message;
+                return;
+              }
+              if (!hasAttemptedQuiz) {
+                let totalScore =
+                  parseInt(localStorage.getItem("totalScore")) || 0; // Initialize to 0 if localStorage value is not valid
+                totalScore += parseInt(data.score); // Add quiz score to total score
+                localStorage.setItem("totalScore", totalScore); // Store the updated total score
+                localStorage.setItem("hasAttemptedQuiz", true); // Set the flag indicating the quiz has been attempted
+                console.log("Total score updated:", totalScore); // Check if total score is updated
+
+                // Set a flag for level1 completion
+                localStorage.setItem("l1_s1Completed", true);
+              }
+              // Redirect to level1.html after successful submission
+              window.location.href = "level1.html";
+            })
+            .catch((error) => {
+              console.error("Error:", error);
+            });
+        });
+      });
+    </script>
+
+    <!-- ----------------------------------- -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const submitButton = document.querySelector("#submitQuiz");
+        if (submitButton) {
+          submitButton.addEventListener("click", function () {
+            localStorage.setItem("level1Completed", true);
+            console.log("Level 1  stage 1 completed flag set in localStorage");
+          });
+        }
+      });
+    </script>
+
+   
+
+  </body>
+</html>

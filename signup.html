@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--=============== REMIXICONS ===============-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css"
+      crossorigin=""
+    />
+
+    <!--=============== CSS ===============-->
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <title>REGISTER | TECHNOVA 6.0</title>
+  </head>
+  <body>
+    <!-- <div class="login" style="background-color: black;"> -->
+    <div
+      class="login"
+      style="
+        background-image: linear-gradient(
+          0deg,
+          rgba(94, 58, 238, 1) 0%,
+          rgba(197, 107, 240, 1) 100%
+        );
+      "
+    >
+      <!-- <img src="assets\img\login-bg.png" alt="image" class="login__bg"> -->
+
+      <form action="" class="login__form" id="form">
+        <h1 class="login__title">Register</h1>
+
+        <div class="login__inputs">
+          <div class="login__box">
+            <input
+              name="email"
+              type="email"
+              placeholder="Email ID"
+              required
+              class="login__input"
+            />
+            <i class="ri-mail-fill"></i>
+          </div>
+
+          <div class="login__box">
+            <input
+              name="password"
+              type="password"
+              placeholder="Password"
+              required
+              class="login__input"
+              />
+              <!-- minlength="6" -->
+            <i class="ri-lock-2-fill"></i>
+          </div>
+        </div>
+        <div class="login__box">
+          <input
+            name="cnfpassword"
+            type="password"
+            placeholder="Conform Password"
+            required
+            class="login__input"
+          />
+          <i class="ri-lock-2-fill"></i>
+        </div>
+
+        <!-- 
+            <div class="login__check">
+               <div class="login__check-box">
+                  <input type="checkbox" class="login__check-input" id="user-check">
+                  <label for="user-check" class="login__check-label">Remember me</label>
+               </div> -->
+
+        <!-- <a href="#" class="login__forgot">Forgot Password?</a> -->
+        <!-- </div> -->
+
+        <button type="submit" class="login__button" style="margin-top: 15px">
+          Register
+        </button>
+
+        <div class="login__register">
+          Already have an account? <a href="login.html">Login</a>
+        </div>
+        <p id="errorMessage"></p>
+      </form>
+    </div>
+
+    <script>
+      const form = document.getElementById("form");
+      const errorMessage = document.getElementById("errorMessage");
+      errorMessage.innerText = "";
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        console.log("yo");
+        const formData = new FormData(e.currentTarget);
+        const data = Object.fromEntries(formData);
+        console.log(data);
+
+        if (data?.password != data?.cnfpassword) {
+          errorMessage.innerText =
+            "Password and Confirm Password should be same";
+          return;
+        }
+
+        fetch("http://localhost:7000/api/user/register", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data),
+        }).then((res) => {
+          res.json().then((resData) => {
+            console.log(resData);
+            
+            if (resData?.message) {
+              errorMessage.innerText = resData?.message;
+            }
+            else{
+              window.location.href="/login.html"
+            }
+            // if(resData?.token){
+            //   localStorage.setItem("token",resData?.token)
+            //   window.location.href="/levels.html"
+            // }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

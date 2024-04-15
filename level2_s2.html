@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technova</title>
+    <link href="assets/css/style.css" rel="stylesheet">
+    <style>
+      
+        /* .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        } */
+       
+        
+        /* CSS styles for the message */
+        .message {
+            font-size: 18px;
+            color: #ffffff;
+            text-align: left;
+            -webkit-nbsp-mode:  space;
+        }
+
+        /* CSS styles for the exit button */
+        .exit-button {
+            background-color: #4CAF50;
+            border: none;
+            color: black;
+            padding: 8px 16px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        #showMessageButton {
+            background-color: #007bff;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        #showMessageButton:hover {
+            background-color: #0056b3;
+        }
+    
+
+    </style>
+</head>
+<body>
+    <header id="header" class="d-flex align-items-center">
+        <div class="container d-flex align-items-center justify-content-between">
+          <div class="logo" style="padding-top: 10px; padding-left: 30px;">
+            <a href="index.html"
+              ><img src="assets/img/logo.png" alt="" class="img-fluid"/></a>
+          </div>
+  
+          <nav id="navbar" class="navbar">
+            <ul class="stageul" style="padding-top: -50px;">
+              <li class="stageli"><a class="nav-link scrollto active" href="levels.html">Dashboard</a></li>
+              <li><a class="nav-link scrollto active" href="level2.html">Level 2</a></li>
+  
+            </ul>
+            <!-- <li><a class="nav-link scrollto" href="#contact">Contact</a></li> -->
+            <i class="bi bi-list mobile-nav-toggle"></i>
+          </nav>
+          <!-- .navbar -->
+        </div>
+      </header>
+
+    <!-- <button id="showMessageButton">Guidlines</button> -->
+
+<div class="containerlevels" style="padding-top: 20px;">
+    <button id="showMessageButton">Guidlines</button>
+    <h1 style="text-align: center;">figure out the Hidden message</h1>
+    <div id="messageCard" class="card" style="display: none;">
+        <div class="message">
+            
+            <h2>Guidlines</h2>
+            <li>You are allowed to use online tools to find the answer.</li>
+            <li>There is no time limit.</li>
+            <li>You should clear your doubts during the task, with your handler directly and immediately.</li>
+            <li>You task will only end when you check the correct answer in proper format.</li>
+            <li>You are allowed to check the answer as many times as you want.</li>
+        </div>
+        <button id="exitButton" class="exit-button">Exit</button>
+    </div>
+    
+    In the serene village of Evergreen Vale, Ouroboros lived a life of quiet reflection, captivated by the mysteries of the surrounding wilderness. A chance discovery—an aged parchment bearing cryptic symbols—ignited his curiosity and set him on an extraordinary journey. Seeking counsel from village elders, he learned of a legendary scroll said to unveil Blackwood Creek's secrets.
+
+Driven by an insatiable thirst for knowledge, Ouroboros left behind his familiar world, guided by whispers of forgotten lore and the forest's ancient murmurs. On his journey to the unknown he carried with him, in his mind, a chant that gave him immense mental fortitude in the most daring of predicaments that he might come across on his journey, taught to him by his mother who was a beloved white witch of his land. She taught him this chant in a certain cryptic way so as to not be used by evil forces dormant in the realm. On his path into the forest he decides to decrypt this mantra to reveal its true essence. <br><br>
+<audio controls>
+    <source src="audio/level2_task2_audio_qllcqp.wav" type="audio/wav">
+    <!-- Your browser does not support the audio element. -->
+</audio>
+</div>
+<br>
+
+<section>
+	<div style="padding-top: 3%;">
+		<!-- Verification form -->
+		<div class="containerv">
+			<form class="verification-form" id="codeVerificationForm">
+				<label for="verificationCode">Enter the verification code:</label>
+				<input type="text" id="verificationCode" name="verificationCode" placeholder="Enter code">
+				<!-- Display error message for wrong code -->
+				<span id="errorMessage" style="color: red;"></span> <br>
+                <P>enter answer in format: insight{answer}</P>
+                <button id="endTaskButton" class="redirect-button">End Task</button>
+			</form>
+		</div>
+        
+	</div>
+    
+</section>
+<script>document.addEventListener("DOMContentLoaded", function() {
+
+        document.getElementById('codeVerificationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(e.currentTarget);
+          const quizData = {};
+          quizData["level"] = 2;
+          quizData["round"] = 2;
+         
+
+          formData.forEach((value, key) => {
+            quizData[key] = value;
+          });
+
+               
+                const errorMsg=document.getElementById("errorMessage")
+                errorMsg.innerHTML=""
+                fetch('http://localhost:7000/api/quiz/evaluate', { method: 'POST',
+                headers: {
+              "Content-Type": "application/json",
+              authorization: localStorage.getItem("token"),
+            },
+            body: JSON.stringify(quizData),
+            })
+                    .then(response => response.json())
+                    .then(data => {
+                        if(data?.message){
+                            //error message
+                           errorMsg.innerHTML = data.message;
+                            return;
+                        }
+                       
+                       
+                          window.location.href = 'level2.html'; 
+                     
+                       return;
+                    })
+                    .catch(error => console.error('Error:', error));
+          
+        });
+});
+</script>
+
+
+
+</body>
+</html>
+

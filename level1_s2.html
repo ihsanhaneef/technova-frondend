@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Technova | Insight'24</title>
+    <meta charset="UTF-8">
+	<meta name="description" content="EndGam Gaming Magazine Template">
+	<meta name="keywords" content="endGam,gGaming, magazine, html">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Favicon -->
+	<link href="img/favicon.ico" rel="shortcut icon"/>
+
+	<!-- Google Font -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+
+
+	<!-- Stylesheets -->
+	<link rel="stylesheet" href="css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="css/font-awesome.min.css"/>
+	<link rel="stylesheet" href="css/slicknav.min.css"/>
+	<link rel="stylesheet" href="css/owl.carousel.min.css"/>
+	<link rel="stylesheet" href="css/magnific-popup.css"/>
+	<link rel="stylesheet" href="css/animate.css"/>
+
+	<!-- Main Stylesheets -->
+	<link rel="stylesheet" href="css/style.css"/>
+    <title>Login</title>
+    <link href="assets/css/style.css" rel="stylesheet">
+	<style>
+        body {
+            /* background-color: #c93737;
+             */
+             background-image: url(img/slider-bg-2.jpg);
+            color: #fff;
+        }
+       
+        /* .header-warp .header-bar-warp .site-logo { */
+            /* Add your logo styling */
+        /* } */
+        .hero-section {
+            background-color: #000;
+            color: #fff;
+        }
+        .hero-item h2 {
+            color: #fff;
+        }
+        .footer-section {
+            /* background-color: #333; */
+            color: #fff;
+        }
+        .footer-section a {
+            color: #fff;
+        }
+        /* Custom styling for the form */
+        form {
+            text-align: center;
+        }
+        form label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        form input[type="text"],
+        form input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #fff;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+        form input[type="submit"] {
+            background-color: #ff6b6b;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        form input[type="submit"]:hover {
+            background-color: #e74c3c;
+        }
+        .redirect-button {
+            background-color: #e74c3c;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 16px;
+            margin-top: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+			align-items: center;
+            /* padding-bottom: 200PX; */
+        }
+
+        .redirect-button:hover {
+            background-color: #c0392b;
+        }
+
+
+    .containerv {
+        position: relative;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 600px; /* Set your desired width */
+        height: 200px; /* Set your desired height */
+        background-image: linear-gradient(
+      0deg,
+      rgba(94, 58, 238, 1) 0%,
+      rgba(197, 107, 240, 1) 100%
+    );        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .verification-form {
+        text-align: center;
+    }
+
+    .verification-form label {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .verification-form input[type="text"] {
+        width: calc(100% - 20px);
+        padding: 8px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        border: 1px solid #1f0404;
+    }
+
+    .verification-form button {
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: #fff;
+        border: none;
+        border-radius: 30px;
+        width: 200px;
+        cursor: pointer;
+    }
+
+    .verification-form button:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+    }
+    .navbar .stageul {
+    margin: -36px;
+    display: flex;
+    list-style: none;
+    align-items: center;
+    /* padding-left: 80%; */
+
+    padding-left: 80%;
+
+    color: white;
+    font-weight: bold;
+}
+.navbar a:hover,
+.navbar .active,
+.navbar .active:focus,
+.navbar .stageli:hover>a {
+  color: rgb(0, 0, 0);
+}
+
+</style>
+    </style>
+    
+</head>
+<body>
+    
+        <!-- <h1>YOU ARE ALREADY SUBMITTED</h1> -->
+        <!-- <div id="score"></div> -->
+        
+   
+
+	<!-- Page Preloder -->
+	<div id="preloder">
+		<div class="loader"></div>
+	</div>
+
+	<!-- Header section -->
+    <header id="header" class="d-flex align-items-center">
+        <div class="container d-flex align-items-center justify-content-between">
+          <div class="logo" style="padding-top: 10px; padding-left: 30px;">
+            <a href="index.html"
+              ><img src="assets/img/logo.png" alt="" class="img-fluid"/></a>
+          </div>
+  
+          <nav id="navbar" class="navbar">
+              <ul class="stageul" style="padding-top: -50px;">
+                <li style="padding-right: 20px;"><button class="error-button" onclick="displayError()">Guid Lines</button></li>
+              <li class="stageli"><a class="nav-link scrollto active" href="levels.html">Dashboard</a></li>
+              <li><a class="nav-link scrollto active" href="level1.html">Level 1</a></li>
+  
+            </ul>
+            <!-- <li><a class="nav-link scrollto" href="#contact">Contact</a></li> -->
+            <i class="bi bi-list mobile-nav-toggle"></i>
+          </nav>
+          <!-- .navbar -->
+        </div>
+      </header>
+      
+
+	<!-- Header section end -->
+    <section>
+        
+
+        <div style="padding-top: 3%;">
+<!-- Include the CryptoJS library for hashing the user id before sending it to the PuzzleMe server. -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+<!-- Include the javascript library for embedding this puzzle. -->
+<script id="pm-script" src="https://amuselabs.com/pmm/js/puzzleme-embed.js"></script>
+<!-- Specify the Amuse Labs server name from where the puzzles will be served -->
+<script>
+PM_Config.PM_BasePath = "https://amuselabs.com/pmm/";
+</script>
+
+<!-- Specifies the puzzle to be embedded on the page. If you want to render multiple games on your page then you can copy paste it multiple times. -->
+<div class="pm-embed-div" data-id="da3f740b" data-set="95676f2bc96d1e239e11cc8197c2a7fc6305b1af5b7d5a4fd0532d267a9affeb" data-puzzleType="jigsaw" data-height="700px"></div>
+
+</div>
+
+</section>
+
+<!-- ---------------------VARSHA GUIDLINES------------------------------ -->
+<div id="error-dialog" class="error-dialog">
+    <button class="exit-button" onclick="closeErrorDialog()">X</button>
+    <p>An error occurred. Please try again later.</p>
+    <p>An error occurred. Please try again later.</p>
+    <p>An error occurred. Please try again later.</p>
+    <p>An error occurred. Please try again later.</p>
+    <p>An error occurred. Please try again later.</p>
+    <p>An error occurred. Please try again later.</p>
+    <p>An error occurred. Please try again later.</p>
+  </div>
+
+
+
+
+
+
+
+
+
+
+  <!-- -----------------END OF VARSHA CODE---------------------------------- -->
+<section>
+	<div style="padding-top: 3%;">
+		<!-- Verification form -->
+		<div class="containerv">
+			<form class="verification-form" id="codeVerificationForm">
+				<label for="verificationCode">Enter the verification code:</label>
+				<input type="text" id="verificationCode" name="verificationCode" placeholder="Enter code">
+				<!-- Display error message for wrong code -->
+				<span id="errorMessage" style="color: red;"></span>
+                <P>enter answer in format: insight{answer}</P>
+                <button id="endTaskButton" class="redirect-button" >End Task</button>
+
+			</form>
+		</div>
+	</div>
+</section>
+	<!-- Hero section -->
+	
+	
+
+	
+
+
+	<!--====== Javascripts & Jquery ======-->
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.slicknav.min.js"></script>
+	<script src="js/owl.carousel.min.js"></script>
+	<script src="js/jquery.sticky-sidebar.min.js"></script>
+	<script src="js/jquery.magnific-popup.min.js"></script>
+	<script src="js/main.js"></script>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+
+        document.getElementById('codeVerificationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(e.currentTarget);
+          const quizData = {};
+          quizData["level"] = 1;
+          quizData["round"] = 2;
+          console.log(quizData)
+
+          formData.forEach((value, key) => {
+            quizData[key] = value;
+          });
+
+                console.log("SUBMITTING")
+                const errorMsg=document.getElementById("errorMessage")
+                errorMsg.innerHTML=""
+                fetch('http://localhost:7000/api/quiz/evaluate', { method: 'POST',
+                headers: {
+              "Content-Type": "application/json",
+              authorization: localStorage.getItem("token"),
+            },
+            body: JSON.stringify(quizData),
+            })
+                    .then(response => response.json())
+                    .then(data => {
+                        if(data?.message){
+                            //error message
+                           errorMsg.innerHTML = data.message;
+                            return;
+                        }
+                       
+                       
+                       // Store the updated total score
+                       localStorage.setItem('hasAttemptedPuzzle', true); // Set the flag indicating the puzzle has been attempted
+                       window.location.href = 'level1.html'; // Redirect to level.html
+                       localStorage.setItem('submitButtonPuzzle', true)
+                       localStorage.setItem('l1_s2Completed', true);
+                       return;
+                    })
+                    .catch(error => console.error('Error:', error));
+          
+        });
+
+      
+    });
+</script>
+
+<script>document.addEventListener('DOMContentLoaded', function() {
+    const submitButtonPuzzle = document.querySelector('#submitPuzzle');
+    if (submitButtonPuzzle) {
+        submitButtonPuzzle.addEventListener('click', function() {
+            sessionStorage.setItem('l1_s2Completed', true);
+            console.log("Level 1 stage 2 completed flag set in sessionStorage");
+            
+        });
+    }
+});
+
+</script>
+
+ <!-- -----------------guidline box script -----------------? -->
+ <script>
+    function displayError() {
+      var errorDialog = document.getElementById('error-dialog');
+      errorDialog.style.display = 'block';
+    }
+
+    function closeErrorDialog() {
+      var errorDialog = document.getElementById('error-dialog');
+      errorDialog.style.display = 'none';
+    }
+  </script>
+
+
+
+
+
+
+	
+	
+	
+	
+	
+
+	</body>
+</html>
+
+    
+</body>
+</html>

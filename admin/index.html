@@ -167,9 +167,10 @@ tbody tr:hover {
     <div style="min-height: 10rem">
       <h2 style="color: white; text-align: center">
         hello,
-        <p id="profileEmail" style="display: inline"></p>
-        👋
-      </h2>
+        <p id="profileEmail" style="display: inline"></p>👋</h2>
+        <p id="eventStatus"></p>
+        <button id="eventToggle">Toggle event status</button>
+
     </div>
     <div class="table-container">
       <table>
@@ -250,4 +251,32 @@ tbody tr:hover {
       });
     });
   </script>
+  <script>
+    function getAndUpdateEventStatus() {
+      fetch("http://localhost:7000/api/eventover/iseventOver").then((response) => {
+        response.json().then((data) => {
+          const eventStatusP = document.getElementById("eventStatus");
+          const eventIsOver = data?.over;
+          if (eventIsOver) {
+            eventStatusP.innerText = "Event is over";
+          } else {
+            eventStatusP.innerText = "Event is still going on";
+          }
+        });
+      });
+    }
+    document.addEventListener("DOMContentLoaded", () => {
+      getAndUpdateEventStatus();
+
+      const eventTOggleButton = document.getElementById("eventToggle");
+      eventTOggleButton.addEventListener("click", () => {
+        eventTOggleButton.disabled = true;
+        fetch("http://localhost:7000/api/eventover/toggleeventOver").then((response) => {
+          getAndUpdateEventStatus();
+          eventTOggleButton.disabled = false;
+        });
+      });
+    });
+  </script>
+</html>
 </html>

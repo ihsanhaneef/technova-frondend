@@ -1,63 +1,42 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Error Message Dialog Box</title>
-  <style>
-    /* Style for the button */
-    .error-button {
-      padding: 10px 20px;
-      background-color: #f44336;
-      color: white;
-      border: none;
-      cursor: pointer;
-      border-radius: 5px;
-    }
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Technova</title>
+    <link href="assets/img/favicon.png" rel="icon">
+  </head>
+  <body>
+    <p>Event status</p>
+    <p id="eventStatus"></p>
+    <button id="eventToggle">Toggle event status</button>
+  </body>
 
-    /* Style for the error message dialog box */
-    .error-dialog {
-      display: none;
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background-color: #f44336;
-      color: white;
-      padding: 20px;
-      border-radius: 5px;
-      z-index: 1000; /* Ensure it appears on top of other elements */
-    }
-
-    /* Style for the exit button */
-    .exit-button {
-      position: absolute;
-      top: 5px;
-      right: 5px;
-      background-color: transparent;
-      color: white;
-      border: none;
-      cursor: pointer;
-    }
-  </style>
   <script>
-    function displayError() {
-      var errorDialog = document.getElementById('error-dialog');
-      errorDialog.style.display = 'block';
+    function getAndUpdateEventStatus() {
+      fetch("http://localhost:7000/api/eventover/iseventOver").then((response) => {
+        response.json().then((data) => {
+          const eventStatusP = document.getElementById("eventStatus");
+          const eventIsOver = data?.over;
+          if (eventIsOver) {
+            eventStatusP.innerText = "Event is over";
+          } else {
+            eventStatusP.innerText = "Event is still going on";
+          }
+        });
+      });
     }
+    document.addEventListener("DOMContentLoaded", () => {
+      getAndUpdateEventStatus();
 
-    function closeErrorDialog() {
-      var errorDialog = document.getElementById('error-dialog');
-      errorDialog.style.display = 'none';
-    }
+      const eventTOggleButton = document.getElementById("eventToggle");
+      eventTOggleButton.addEventListener("click", () => {
+        eventTOggleButton.disabled = true;
+        fetch("http://localhost:7000/api/eventover/toggleeventOver").then((response) => {
+          getAndUpdateEventStatus();
+          eventTOggleButton.disabled = false;
+        });
+      });
+    });
   </script>
-</head>
-<body>
-
-<button class="error-button" onclick="displayError()">Click Me for Error</button>
-
-<div id="error-dialog" class="error-dialog">
-  <button class="exit-button" onclick="closeErrorDialog()">X</button>
-  <p>An error occurred. Please try again later.</p>
-</div>
-
-</body>
 </html>

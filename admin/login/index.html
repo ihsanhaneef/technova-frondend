@@ -78,7 +78,9 @@
           const formData = new FormData(e.currentTarget);
           const data = Object.fromEntries(formData);
           console.log(data);
-          fetch("http://localhost:7000/api/admin/loginadmin", {
+          // fetch("http://localhost:7000/api/admin/loginadmin", {
+            fetch("https://technova-backend.onrender.com/api/admin/loginadmin", {
+
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data),

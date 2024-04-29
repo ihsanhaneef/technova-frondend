@@ -106,6 +106,34 @@ tbody tr:hover {
   }
 }
 
+#container {
+  text-align: center; /* Center-align content */
+}
+
+#eventStatus {
+  font-size: 16px;
+  padding: 10px;
+  /* background-color: #f0f0f0; */
+   /* border-radius: 5px;  */
+  /* border: 1px solid #ccc; */
+  margin-bottom: 10px;
+}
+
+#eventToggle {
+  font-size: 14px;
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#eventToggle:hover {
+  background-color: #0056b3;
+}
+
+
 
   </style>
   </head>
@@ -122,6 +150,7 @@ tbody tr:hover {
         <nav id="navbar" class="navbar">
           <ul>
             <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+            <li><a class="nav-link scrollto active" href="#event_status">Event status</a></li>
             <!-- <li><a class="nav-link scrollto" href="#about">About</a></li> -->
             <!-- <li><a class="nav-link scrollto" href="#services">Services</a></li> -->
             <li>
@@ -168,9 +197,7 @@ tbody tr:hover {
       <h2 style="color: white; text-align: center">
         hello,
         <p id="profileEmail" style="display: inline"></p>👋</h2>
-        <p id="eventStatus"></p>
-        <button id="eventToggle">Toggle event status</button>
-
+        
     </div>
     <div class="table-container">
       <table>
@@ -181,6 +208,13 @@ tbody tr:hover {
         </thead>
         <tbody id="tableBody"></tbody>
       </table>
+    </div>
+  </section>
+
+  <section id="event_status">
+    <div id="container">
+      <p id="eventStatus"></p><button id="eventToggle"  >Events status</button>
+      
     </div>
   </section>
 
@@ -196,7 +230,9 @@ tbody tr:hover {
       logout();
     }
 
-    fetch("http://localhost:7000/api/admin/profile", {
+    // fetch("http://localhost:7000/api/admin/profile", {
+      fetch("https://technova-backend.onrender.com/api/admin/profile", {
+
       headers: { authorization: token },
     }).then((r) => {
       r.json().then((data) => {
@@ -207,7 +243,8 @@ tbody tr:hover {
       });
     });
 
-    fetch("http://localhost:7000/api/admin/users", {
+    // fetch("http://localhost:7000/api/admin/users", {
+      fetch("https://technova-backend.onrender.com/api/admin/users", {
       headers: { authorization: token },
     }).then((r) => {
       r.json().then((data) => {
@@ -253,14 +290,18 @@ tbody tr:hover {
   </script>
   <script>
     function getAndUpdateEventStatus() {
-      fetch("http://localhost:7000/api/eventover/iseventOver").then((response) => {
+      // fetch("http://localhost:7000/api/eventover/iseventOver").then((response) => {
+        fetch("https://technova-backend.onrender.com/api/eventover/iseventOver").then((response) => {
+
         response.json().then((data) => {
           const eventStatusP = document.getElementById("eventStatus");
           const eventIsOver = data?.over;
           if (eventIsOver) {
             eventStatusP.innerText = "Event is over";
+            eventStatusP.style.color = "red";
           } else {
             eventStatusP.innerText = "Event is still going on";
+            eventStatusP.style.color = "green";
           }
         });
       });
@@ -271,7 +312,9 @@ tbody tr:hover {
       const eventTOggleButton = document.getElementById("eventToggle");
       eventTOggleButton.addEventListener("click", () => {
         eventTOggleButton.disabled = true;
-        fetch("http://localhost:7000/api/eventover/toggleeventOver").then((response) => {
+        // fetch("http://localhost:7000/api/eventover/toggleeventOver").then((response) => {
+          fetch("https://technova-backend.onrender.com/api/eventover/toggleeventOver").then((response) => {
+
           getAndUpdateEventStatus();
           eventTOggleButton.disabled = false;
         });

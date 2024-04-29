@@ -136,7 +136,7 @@
         class="formi"
         style="padding-top: 20px; flex-direction: column; align-items: center"
       >
-      <p id="eventStatus" style="color: black;"></p>
+      <p id="eventStatus" style="color: black; display: inline;"> caa</p>
         <img
           src="https://res.cloudinary.com/dh7c22gw9/image/upload/v1709406040/assets/images/level2_task1_img_rug25k.png"
           alt=""
@@ -202,13 +202,26 @@
           const eventStatusP = document.getElementById("eventStatus");
           const eventIsOver = data?.over;
           if (eventIsOver) {
-            eventStatusP.innerText = "Event is over";
+            // eventStatusP.innerText = "Event is over";
+            window.location.href = 'gameover.html';
           } else {
             eventStatusP.innerText = "Event is still going on";
           }
         });
       });
     }
+    document.addEventListener("DOMContentLoaded", () => {
+      getAndUpdateEventStatus();
+
+      const eventTOggleButton = document.getElementById("eventToggle");
+      eventTOggleButton.addEventListener("click", () => {
+        eventTOggleButton.disabled = true;
+        fetch("http://localhost:7000/api/eventover/toggleeventOver").then((response) => {
+          getAndUpdateEventStatus();
+          eventTOggleButton.disabled = false;
+        });
+      });
+    });
 </script>
 
 

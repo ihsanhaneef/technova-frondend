@@ -106,7 +106,9 @@
           return;
         }
 
-        fetch("http://localhost:7000/api/user/register", {
+        // fetch("http://localhost:7000/api/user/register", {
+          fetch("https://technova-backend.onrender.com/api/user/register", {
+
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(data),

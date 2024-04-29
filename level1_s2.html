@@ -296,7 +296,9 @@ PM_Config.PM_BasePath = "https://amuselabs.com/pmm/";
                 console.log("SUBMITTING")
                 const errorMsg=document.getElementById("errorMessage")
                 errorMsg.innerHTML=""
-                fetch('http://localhost:7000/api/quiz/evaluate', { method: 'POST',
+                // fetch('http://localhost:7000/api/quiz/evaluate', { method: 'POST',
+                fetch('https://technova-backend.onrender.com/api/quiz/evaluate', { method: 'POST',
+
                 headers: {
               "Content-Type": "application/json",
               authorization: localStorage.getItem("token"),
@@ -356,7 +358,9 @@ PM_Config.PM_BasePath = "https://amuselabs.com/pmm/";
   <!-- ========== game over ============ -->
 <script>
     function getAndUpdateEventStatus() {
-       fetch("http://localhost:7000/api/eventover/iseventOver").then((response) => {
+      //  fetch("http://localhost:7000/api/eventover/iseventOver").then((response) => {
+        fetch("https://technova-backend.onrender.com/api/eventover/iseventOver").then((response) => {
+
          response.json().then((data) => {
            const eventStatusP = document.getElementById("eventStatus");
            const eventIsOver = data?.over;
@@ -375,7 +379,9 @@ PM_Config.PM_BasePath = "https://amuselabs.com/pmm/";
        const eventTOggleButton = document.getElementById("eventToggle");
        eventTOggleButton.addEventListener("click", () => {
          eventTOggleButton.disabled = true;
-         fetch("http://localhost:7000/api/eventover/toggleeventOver").then((response) => {
+        //  fetch("http://localhost:7000/api/eventover/toggleeventOver").then((response) => {
+          fetch("https://technova-backend.onrender.com/api/eventover/toggleeventOver").then((response) => {
+
            getAndUpdateEventStatus();
            eventTOggleButton.disabled = false;
          });

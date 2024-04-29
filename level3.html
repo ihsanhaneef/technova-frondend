@@ -177,7 +177,9 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    fetch("http://localhost:7000/api/user/profile", {
+    // fetch("http://localhost:7000/api/user/profile", {
+      fetch("https://technova-backend.onrender.com/api/user/profile", {
+
       headers: {
         authorization: localStorage.getItem("token"),
       },

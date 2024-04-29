@@ -197,7 +197,10 @@
 <!-- ========== game over ============ -->
 <script>
    function getAndUpdateEventStatus() {
-      fetch("http://localhost:7000/api/eventover/iseventOver").then((response) => {
+      // fetch("http://localhost:7000/api/eventover/iseventOver").then((response) => {
+        fetch("https://technova-backend.onrender.com/api/eventover/iseventOver").then((response) => {
+
+
         response.json().then((data) => {
           const eventStatusP = document.getElementById("eventStatus");
           const eventIsOver = data?.over;
@@ -216,7 +219,10 @@
       const eventTOggleButton = document.getElementById("eventToggle");
       eventTOggleButton.addEventListener("click", () => {
         eventTOggleButton.disabled = true;
-        fetch("http://localhost:7000/api/eventover/toggleeventOver").then((response) => {
+        // fetch("http://localhost:7000/api/eventover/toggleeventOver").then((response) => {
+          fetch("https://technova-backend.onrender.com/api/eventover/toggleeventOver").then((response) => {
+
+
           getAndUpdateEventStatus();
           eventTOggleButton.disabled = false;
         });
@@ -263,7 +269,10 @@
 
             const errorMsg = document.getElementById("errorMessage");
             errorMsg.innerHTML = "";
-            fetch("http://localhost:7000/api/quiz/evaluate", 
+            // fetch("http://localhost:7000/api/quiz/evaluate", 
+            fetch("https://technova-backend.onrender.com/api/quiz/evaluate", 
+
+
             {
               method: "POST",
               headers: {

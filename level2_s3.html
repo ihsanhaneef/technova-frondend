@@ -103,6 +103,8 @@
 
         <nav id="navbar" class="navbar">
           <ul class="stageul" style="padding-top: -50px;">
+            <li style="padding-right: 20px;"><button class="error-button" onclick="displayError()">Guid Lines</button></li>
+
             <li class="stageli"><a class="nav-link scrollto active" href="levels.html">Dashboard</a></li>
             <li><a class="nav-link scrollto active" href="level2.html">Level 2</a></li>
 
@@ -158,7 +160,43 @@
           </form>
         </div>
       </div>
+
+      <!-- ---------------------VARSHA GUIDLINES------------------------------ -->
+<div id="error-dialog" class="error-dialog">
+  <button class="exit-button" onclick="closeErrorDialog()">X</button>
+  <p>An error occurred. Please try again later.</p>
+  <p>An error occurred. Please try again later.</p>
+  <p>An error occurred. Please try again later.</p>
+  <p>An error occurred. Please try again later.</p>
+  <p>An error occurred. Please try again later.</p>
+  <p>An error occurred. Please try again later.</p>
+  <p>An error occurred. Please try again later.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+<!-- -----------------END OF VARSHA CODE---------------------------------- -->
     </section>
+   <!-- -----------------guidline box script -----------------? -->
+ <script>
+  function displayError() {
+    var errorDialog = document.getElementById('error-dialog');
+    errorDialog.style.display = 'block';
+  }
+
+  function closeErrorDialog() {
+    var errorDialog = document.getElementById('error-dialog');
+    errorDialog.style.display = 'none';
+  }
+</script>
+
     
 
     <script>

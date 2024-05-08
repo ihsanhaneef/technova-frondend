@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technova</title>
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/img/favicon.png" rel="icon">
+    <style>
+      
+        /* .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        } */
+       
+        
+        /* CSS styles for the message */
+        .message {
+            font-size: 18px;
+            color: #ffffff;
+            text-align: left;
+            -webkit-nbsp-mode:  space;
+        }
+
+        /* CSS styles for the exit button */
+        .exit-button {
+            background-color: #4CAF50;
+            border: none;
+            color: black;
+            padding: 8px 16px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        #showMessageButton {
+            background-color: #007bff;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        #showMessageButton:hover {
+            background-color: #0056b3;
+        }
+    
+
+    </style>
+</head>
+<body>
+    <header id="header" class="d-flex align-items-center">
+        <div class="container d-flex align-items-center justify-content-between">
+          <div class="logo" style="padding-top: 10px; padding-left: 30px;">
+            <a href="index.html"
+              ><img src="assets/img/logo.png" alt="" class="img-fluid"/></a>
+          </div>
+  
+          <nav id="navbar" class="navbar">
+            <ul class="stageul" style="padding-top: -50px;">
+              <li style="padding-right: 20px;"><button class="error-button" onclick="displayError()">Guid Lines</button></li>
+
+              <li class="stageli"><a class="nav-link scrollto active" href="levels.html">Dashboard</a></li>
+              <li><a class="nav-link scrollto active" href="level4.html">Level 4</a></li>
+  
+            </ul>
+            <!-- <li><a class="nav-link scrollto" href="#contact">Contact</a></li> -->
+            <i class="bi bi-list mobile-nav-toggle"></i>
+          </nav>
+          <!-- .navbar -->
+        </div>
+      </header>
+
+    <!-- <button id="showMessageButton">Guidlines</button> -->
+<h1 style="text-align: center; color: white; padding-top: 20px;">HIDDEN MESSAGE</h1>
+<div class="containerlevels" style="padding-top: 20px;">
+    <!-- <button id="showMessageButton">Guidlines</button> -->
+    <h1 style="text-align: center; color: black; padding-bottom: 20px;">figure out the Hidden message</h1>
+    Ouroboros, having deciphered the mystical scroll in the depths of Blackwood Creek, finds himself drawn deeper into the enigmatic mysteries of the realm. As he explores the rugged terrain surrounding the place where he discovered the scroll, he stumbles upon a hidden cave, its entrance veiled by tangled vines and shadowy foliage.
+
+Intrigued by the whisper of an unfamiliar sound emanating from within, Ouroboros cautiously ventures into the cavern's depths. The air grows thick with anticipation as he navigates through winding passages, the faint glow of luminescent fungi casting eerie shadows upon the ancient walls.
+
+Suddenly, amidst the echoing silence of the cave, Ouroboros discerns a rhythmic pattern—a haunting melody woven into the very fabric of the underground chamber. Entranced by the ethereal notes, he realizes that he has stumbled upon another cryptic message, encoded in a language as enigmatic as the scroll.
+
+<br><br>
+<br>
+
+<audio controls>
+    <source src="audio/level4_task1_audio_ajos0l.wav" type="audio/wav">
+    <!-- Your browser does not support the audio element. -->
+</audio>
+</div>
+<br>
+
+<section>
+	<div style="padding-top: 3%;">
+		<!-- Verification form -->
+		<div class="containerv">
+			<form class="verification-form" id="codeVerificationForm">
+				<label for="verificationCode">Enter the verification code:</label>
+				<input type="text" id="verificationCode" name="verificationCode" placeholder="Enter code">
+				<!-- Display error message for wrong code -->
+				<span id="errorMessage" style="color: red;"></span> <br>
+                <P>enter answer in format: insight{answer}</P>
+                <button id="endTaskButton" class="redirect-button">End Task</button>
+			</form>
+		</div>
+        
+	</div>
+
+  <!-- ---------------------VARSHA GUIDLINES------------------------------ -->
+<div id="error-dialog" class="error-dialog">
+  <button class="exit-button" onclick="closeErrorDialog()">X</button>
+  <p>An error occurred. Please try again later.</p>
+  <p>An error occurred. Please try again later.</p>
+  <p>An error occurred. Please try again later.</p>
+  <p>An error occurred. Please try again later.</p>
+  <p>An error occurred. Please try again later.</p>
+  <p>An error occurred. Please try again later.</p>
+  <p>An error occurred. Please try again later.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+<!-- -----------------END OF VARSHA CODE---------------------------------- -->
+    
+</section>
+
+<!-- -----------------guidline box script -----------------? -->
+<script>
+  function displayError() {
+    var errorDialog = document.getElementById('error-dialog');
+    errorDialog.style.display = 'block';
+  }
+
+  function closeErrorDialog() {
+    var errorDialog = document.getElementById('error-dialog');
+    errorDialog.style.display = 'none';
+  }
+</script>
+
+
+
+<script>document.addEventListener("DOMContentLoaded", function() {
+
+        document.getElementById('codeVerificationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(e.currentTarget);
+          const quizData = {};
+          quizData["level"] = 4;
+          quizData["round"] = 1;
+         
+
+          formData.forEach((value, key) => {
+            quizData[key] = value;
+          });
+
+               
+                const errorMsg=document.getElementById("errorMessage")
+                errorMsg.innerHTML=""
+                // fetch('http://localhost:7000/api/quiz/evaluate', { method: 'POST',
+                fetch('https://technova-backend.onrender.com/api/quiz/evaluate', { method: 'POST',
+
+                headers: {
+              "Content-Type": "application/json",
+              authorization: localStorage.getItem("token"),
+            },
+            body: JSON.stringify(quizData),
+            })
+                    .then(response => response.json())
+                    .then(data => {
+                        if(data?.message){
+                            //error message
+                           errorMsg.innerHTML = data.message;
+                            return;
+                        }
+                       
+                       
+                          window.location.href = 'level4.html'; 
+                     
+                       return;
+                    })
+                    .catch(error => console.error('Error:', error));
+          
+        });
+});
+</script>
+
+<!-- ========== game over ============ -->
+<script>
+  function getAndUpdateEventStatus() {
+    //  fetch("http://localhost:7000/api/eventover/iseventOver").then((response) => {
+      fetch("https://technova-backend.onrender.com/api/eventover/iseventOver").then((response) => {
+
+      
+       response.json().then((data) => {
+         const eventStatusP = document.getElementById("eventStatus");
+         const eventIsOver = data?.over;
+         if (eventIsOver) {
+          //  eventStatusP.innerText = "Event is over";
+           window.location.href = 'gameover.html';
+         } else {
+           eventStatusP.innerText = "Event is still going on";
+         }
+       });
+     });
+   }
+   document.addEventListener("DOMContentLoaded", () => {
+     getAndUpdateEventStatus();
+
+     const eventTOggleButton = document.getElementById("eventToggle");
+     eventTOggleButton.addEventListener("click", () => {
+       eventTOggleButton.disabled = true;
+      //  fetch("http://localhost:7000/api/eventover/toggleeventOver").then((response) => {
+        fetch("https://technova-backend.onrender.com/api/eventover/toggleeventOver").then((response) => {
+
+         getAndUpdateEventStatus();
+         eventTOggleButton.disabled = false;
+       });
+     });
+   });
+</script>
+
+
+
+</body>
+</html>
+

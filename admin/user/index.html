@@ -253,7 +253,8 @@
       });
     });
 
-    fetch(`http://localhost:7000/api/admin/user/${userId}`, {
+    // fetch(`http://localhost:7000/api/admin/user/${userId}`, {
+      fetch(`https://technova-backend.onrender.com/api/admin/user/${userId}`, {
       headers: { authorization: token },
     }).then((r) => {
       r.json().then((data) => {

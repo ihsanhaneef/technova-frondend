@@ -263,8 +263,8 @@
             e.preventDefault();
             const formData = new FormData(e.currentTarget);
             const quizData = {};
-            quizData["level"] = 2;
-            quizData["round"] = 1;
+            quizData["level"] = 4;
+            quizData["round"] = 2;
 
             formData.forEach((value, key) => {
               quizData[key] = value;
@@ -292,7 +292,7 @@
                   return;
                 }
 
-                window.location.href = "level2.html";
+                window.location.href = "level4.html";
 
                 return;
               })

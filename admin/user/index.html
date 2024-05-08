@@ -242,7 +242,8 @@
 
     const approvalInput = document.getElementById("approvalInput");
 
-    fetch("http://localhost:7000/api/admin/profile", {
+    // fetch("http://localhost:7000/api/admin/profile", {
+      fetch("https://technova-backend.onrender.com/api/admin/profile", {
       headers: { authorization: token },
     }).then((r) => {
       r.json().then((data) => {

@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Technova | Insight'24</title>
+    <meta charset="UTF-8" />
+    <meta name="description" content="EndGam Gaming Magazine Template" />
+    <meta name="keywords" content="endGam,gGaming, magazine, html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Favicon -->
+    <link href="assets/img/favicon.png" rel="icon">
+    <!-- Google Font -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i,900,900i"
+      rel="stylesheet"
+    />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/slicknav.min.css" />
+    <link rel="stylesheet" href="css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="css/magnific-popup.css" />
+    <link rel="stylesheet" href="css/animate.css" />
+
+    <!-- Main Stylesheets -->
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Login</title>
+    <link href="assets/css/style.css" rel="stylesheet" />
+    <style>
+      body {
+        background-color: #000000;
+
+        /* background-image: url(img/slider-bg-2.jpg); */
+        color: #fff;
+      }
+
+      /* .header-warp .header-bar-warp .site-logo { */
+      /* Add your logo styling */
+      /* } */
+      .hero-section {
+        background-color: #000;
+        color: #fff;
+      }
+      .hero-item h2 {
+        color: #fff;
+      }
+      .footer-section {
+        /* background-color: #333; */
+        color: #fff;
+      }
+      .footer-section a {
+        color: #fff;
+      }
+      /* Custom styling for the form */
+      form {
+        text-align: center;
+      }
+      form label {
+        display: block;
+        margin-bottom: 10px;
+      }
+      form input[type="text"],
+      form input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #fff;
+        background-color: rgba(255, 255, 255, 0.1);
+        color: #fff;
+      }
+      form input[type="submit"] {
+        background-color: #ff6b6b;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      form input[type="submit"]:hover {
+        background-color: #e74c3c;
+      }
+      .redirect-button {
+        background-color: #e74c3c;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        text-decoration: none;
+        font-size: 16px;
+        margin-top: 20px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        align-items: center;
+        /* padding-bottom: 200PX; */
+      }
+
+      .redirect-button:hover {
+        background-color: #c0392b;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <h1>YOU ARE ALREADY SUBMITTED</h1> -->
+    <!-- <div id="score"></div> -->
+
+    <!-- Page Preloder -->
+    <div id="preloder">
+      <div class="loader"></div>
+    </div>
+
+    <!-- Header section -->
+    <header id="header" class="d-flex align-items-center">
+      <div class="container d-flex align-items-center justify-content-between">
+        <div class="logo" style="padding-top: 10px; padding-left: 30px;">
+          <a href="index.html"
+            ><img src="assets/img/logo.png" alt="" class="img-fluid"/></a>
+        </div>
+
+        <nav id="navbar" class="navbar">
+          <ul class="stageul" style="padding-top: -50px;">
+            <li style="padding-right: 20px;"><button class="error-button" onclick="displayError()">Guid Lines</button></li>
+            <li class="stageli"><a class="nav-link scrollto active" href="levels.html">Dashboard</a></li>
+            <li><a class="nav-link scrollto active" href="level4.html">Level 4</a></li>
+
+          </ul>
+          <!-- <li><a class="nav-link scrollto" href="#contact">Contact</a></li> -->
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav>
+        <!-- .navbar -->
+      </div>
+    </header>
+    <!-- Header section end -->
+    <section>
+      <div style="align-items: center; justify-content: center; margin-top: -30px; padding-bottom: -30px;">
+      <H1 style="text-align: center;">BLIND CODING</H1>
+    </div> 
+      <div
+        class="formi"
+        style="padding-top: 20px; flex-direction: column; align-items: center"
+      >
+      <!-- <p id="eventStatus" style="color: black; display: inline;"> caa</p> -->
+      <h2 style="color: #000;">Write Code to print this pattern BLINDLY!!</h2>
+        <img
+          src="https://res.cloudinary.com/dh7c22gw9/image/upload/v1709660868/assets/images/blind_pattern_2_ghsel7.png"
+          alt=""
+          width="300"
+          height="300"
+          style="align-items: center"
+        />
+        <br />
+        
+        <a href="#" id="toggle-ide" class="redirect-button">Online IDE</a>
+        <iframe
+          id="ide-iframe"
+          src="https://www.online-ide.com/tk3J4P7TYE"
+          style="
+            width: 100%;
+            height: 100vh;
+            border: none;
+            display: none;
+            margin-top: 20px;
+          "
+        ></iframe>
+      </div>
+    </section>
+    <section>
+      <div style="padding-top: 3%">
+        <!-- Verification form -->
+        <div class="containerv">
+          <form class="verification-form" id="codeVerificationForm">
+            <label for="verificationCode">Enter the verification code:</label>
+            <input
+              type="text"
+              id="verificationCode"
+              name="verificationCode"
+              placeholder="Enter code"
+            />
+            <!-- Display error message for wrong code -->
+            <span id="errorMessage" style="color: red"></span>
+            <p>enter answer in format: insight{answer}</p>
+            <button id="endTaskButton" class="redirect-button">End Task</button>
+          </form>
+        </div>
+      </div>
+    </section>
+    
+<!-- ---------------------VARSHA GUIDLINES------------------------------ -->
+<div id="error-dialog" class="error-dialog">
+  <button class="exit-button" onclick="closeErrorDialog()">X</button>
+  <p>An error occurred. Please try again later.</p>
+  <p>An error occurred. Please try again later.</p>
+  <p>An error occurred. Please try again later.</p>
+  <p>An error occurred. Please try again later.</p>
+  <p>An error occurred. Please try again later.</p>
+  <p>An error occurred. Please try again later.</p>
+  <p>An error occurred. Please try again later.</p>
+</div>
+
+
+<!-- ========== game over ============ -->
+<script>
+   function getAndUpdateEventStatus() {
+      // fetch("http://localhost:7000/api/eventover/iseventOver").then((response) => {
+        fetch("https://technova-backend.onrender.com/api/eventover/iseventOver").then((response) => {
+
+
+        response.json().then((data) => {
+          const eventStatusP = document.getElementById("eventStatus");
+          const eventIsOver = data?.over;
+          if (eventIsOver) {
+            // eventStatusP.innerText = "Event is over";
+            window.location.href = 'gameover.html';
+          } else {
+            eventStatusP.innerText = "Event is still going on";
+          }
+        });
+      });
+    }
+    document.addEventListener("DOMContentLoaded", () => {
+      getAndUpdateEventStatus();
+
+      const eventTOggleButton = document.getElementById("eventToggle");
+      eventTOggleButton.addEventListener("click", () => {
+        eventTOggleButton.disabled = true;
+        // fetch("http://localhost:7000/api/eventover/toggleeventOver").then((response) => {
+          fetch("https://technova-backend.onrender.com/api/eventover/toggleeventOver").then((response) => {
+
+
+          getAndUpdateEventStatus();
+          eventTOggleButton.disabled = false;
+        });
+      });
+    });
+</script>
+
+
+
+
+
+
+<!-- -----------------END OF VARSHA CODE---------------------------------- -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var ideButton = document.getElementById("toggle-ide");
+        var ideIframe = document.getElementById("ide-iframe");
+
+        ideButton.addEventListener("click", function (event) {
+          event.preventDefault(); // Prevent the default action of the link
+          toggleIframeVisibility();
+        });
+
+        function toggleIframeVisibility() {
+          if (ideIframe.style.display === "none") {
+            ideIframe.style.display = "block";
+          } else {
+            ideIframe.style.display = "none";
+          }
+        }
+
+        document
+          .getElementById("codeVerificationForm")
+          .addEventListener("submit", function (e) {
+            e.preventDefault();
+            const formData = new FormData(e.currentTarget);
+            const quizData = {};
+            quizData["level"] = 4;
+            quizData["round"] = 2;
+
+            formData.forEach((value, key) => {
+              quizData[key] = value;
+            });
+
+            const errorMsg = document.getElementById("errorMessage");
+            errorMsg.innerHTML = "";
+            // fetch("http://localhost:7000/api/quiz/evaluate", 
+            fetch("https://technova-backend.onrender.com/api/quiz/evaluate", 
+
+
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                authorization: localStorage.getItem("token"),
+              },
+              body: JSON.stringify(quizData),
+            })
+              .then((response) => response.json())
+              .then((data) => {
+                if (data?.message) {
+                  //error message
+                  errorMsg.innerHTML = data.message;
+                  return;
+                }
+
+                window.location.href = "level4.html";
+
+                return;
+              })
+              .catch((error) => console.error("Error:", error));
+          });
+      });
+    </script>
+
+    <!-- -----------------guidline box script -----------------? -->
+ <script>
+  function displayError() {
+    var errorDialog = document.getElementById('error-dialog');
+    errorDialog.style.display = 'block';
+  }
+
+  function closeErrorDialog() {
+    var errorDialog = document.getElementById('error-dialog');
+    errorDialog.style.display = 'none';
+  }
+</script>
+  </body>
+</html>

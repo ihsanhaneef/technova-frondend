@@ -74,6 +74,9 @@
 
         <nav id="navbar" class="navbar">
           <ul class="stageul" style="padding-top: -50px;">
+            <li style="padding-right: 20px;">
+              <button class="error-button" onclick="displayError()">Guid Lines</button></li>
+
             <li class="stageli"><a class="nav-link scrollto active" href="levels.html">Dashboard</a></li>
             <li><a class="nav-link scrollto active" href="level1.html">Level 1</a></li>
 
@@ -147,6 +150,45 @@
       </form>
       <div id="result"></div>
     </div>
+
+
+
+    <!-- ---------------------VARSHA GUIDLINES------------------------------ -->
+<div id="error-dialog" class="error-dialog">
+  <button class="exit-button" onclick="closeErrorDialog()">X</button>
+<ul>
+  <li>There is a total of 15 questions.</li>
+  <li>For each right answer you will be awarded 2 points for a total of maximum 30 points</li>
+  <li>There is no time limit.</li>
+  <li>After answering all the questions you have to contact your handler to verify your answers.</li>
+  <li>You should only click submit after your handler has verified your window.</li>
+  <li>You are not allowed to search online for answers</li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+<!-- -----------------END OF VARSHA CODE---------------------------------- -->
+<section>
+  <!-- -----------------guidline box script -----------------? -->
+ <script>
+  function displayError() {
+    var errorDialog = document.getElementById('error-dialog');
+    errorDialog.style.display = 'block';
+  }
+
+  function closeErrorDialog() {
+    var errorDialog = document.getElementById('error-dialog');
+    errorDialog.style.display = 'none';
+  }
+</script>
 
     <script>
       // testin

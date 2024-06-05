@@ -132,37 +132,36 @@
     <!-- Header section end -->
     <section>
       <div style="align-items: center; justify-content: center; margin-top: -30px; padding-bottom: -30px;">
-      <H1 style="text-align: center;">BLIND CODING</H1>
+      <H1 style="text-align: center;">Treasure Hunt      </H1>
     </div> 
       <div
         class="formi"
         style="padding-top: 20px; flex-direction: column; align-items: center"
       >
       <!-- <p id="eventStatus" style="color: black; display: inline;"> caa</p> -->
-      <h2 style="color: #000;">Write Code to print this pattern BLINDLY!!</h2>
-        <img
-          src="https://res.cloudinary.com/dh7c22gw9/image/upload/v1709660868/assets/images/blind_pattern_2_ghsel7.png"
+      <h2 style="color: #000;">Here is your Fourth clue:</h2>
+
+
+      <p style="color: black; padding-top: 20px;">Your Final clue is a game! You will start at a wikipedia page. You have reach the target wikipedia page by clicking through the hyperlinks in the pages. Each hyperlink you click will lead you to another wikipedia page.</p>
+        <a href="https://res.cloudinary.com/dh7c22gw9/image/upload/v1709406045/assets/images/wiki_end_dzkhqs.png"> <img
+          src="https://res.cloudinary.com/dh7c22gw9/image/upload/v1709406045/assets/images/wiki_end_dzkhqs.png"
           alt=""
-          width="300"
-          height="300"
+          width="600"
+          height="600"
           style="align-items: center"
-        />
+        /></a>
         <br />
+
+        <div style="padding-top: 80px;">
+          <button class="redirect-button" id="wikipedia">start</button>
+        </div>
+
+
         
-        <a href="#" id="toggle-ide" class="redirect-button">Online IDE</a>
-        <iframe
-          id="ide-iframe"
-          src="https://www.online-ide.com/tk3J4P7TYE"
-          style="
-            width: 100%;
-            height: 100vh;
-            border: none;
-            display: none;
-            margin-top: 20px;
-          "
-        ></iframe>
+        
       </div>
     </section>
+  
     <section>
       <div style="padding-top: 3%">
         <!-- Verification form -->
@@ -187,17 +186,34 @@
 <!-- ---------------------VARSHA GUIDLINES------------------------------ -->
 <div id="error-dialog" class="error-dialog">
   <button class="exit-button" onclick="closeErrorDialog()">X</button>
-  <p>An error occurred. Please try again later.</p>
-  <p>An error occurred. Please try again later.</p>
-  <p>An error occurred. Please try again later.</p>
-  <p>An error occurred. Please try again later.</p>
-  <p>An error occurred. Please try again later.</p>
-  <p>An error occurred. Please try again later.</p>
-  <p>An error occurred. Please try again later.</p>
+ <ul>
+  <li>Reach the given target wikipedia page from the starting wikipedia page.</li>
+  <li>You are only allowed to click the hyperlinks in the article section of every wikipedia page.</li>
+  <li>You should clear your doubts during the task, with your handler directly and immediately.</li>
+  <li>Your handler will verify your output before pressing the "End Task" button</li>
+  <li>Your task will only end after your handler presses the "End Task" button</li>
+  <li>You are not allowed to press the "End Task" button at the bottom of the page.</li>
+  <li>You are not allowed to search online for answers</li>
+  
+ </ul>
 </div>
 
 
 <!-- ========== game over ============ -->
+
+<script>
+  // Get the button element
+  var button = document.getElementById('wikipedia');
+
+  // Add click event listener to the button
+  button.addEventListener('click', function() {
+      // Open a new window with the Wikipedia page
+      window.open("https://en.wikipedia.org/wiki/Main_Page", "_blank", "width=800,height=600");
+  });
+</script>
+
+
+
 <script>
    function getAndUpdateEventStatus() {
       // fetch("http://localhost:7000/api/eventover/iseventOver").then((response) => {
@@ -232,6 +248,10 @@
       });
     });
 </script>
+
+<!-- iframe -->
+
+
 
 
 

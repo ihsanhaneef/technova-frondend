@@ -1,0 +1,265 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <title>LEVELS | TECHNOVA 6.0</title>
+    <meta content="" name="description" />
+    <meta content="" name="keywords" />
+
+    <!-- Favicons -->
+    <link href="/assets/img/favicon.png" rel="icon" />
+    <link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+      rel="stylesheet"
+    />
+
+    <!-- Vendor CSS Files -->
+    <link href="/assets/vendor/aos/aos.css" rel="stylesheet" />
+    <link
+      href="/assets/vendor/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="/assets/vendor/bootstrap-icons/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link
+      href="/assets/vendor/boxicons/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="/assets/vendor/glightbox/css/glightbox.min.css"
+      rel="stylesheet"
+    />
+    <link href="/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+
+    <!-- Template Main CSS File -->
+    <link href="/assets/css/style.css" rel="stylesheet" />
+    <style>
+      .sub-menu li {
+        display: block;
+        border-radius: 30px;
+      }
+
+      .sub-menu li a {
+        display: block;
+        color: black;
+        margin-right: 0;
+        padding: 8px 30px;
+        border-radius: 30px;
+      }
+
+      .sub-menu li a:after {
+        display: none;
+      }
+
+      .sub-menu li a:hover {
+        color: #ffffff;
+      }
+
+
+            .table-container {
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 80%; /* Adjust the width as needed */
+  margin: 0 auto; /* Center the container */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  background-color: #f2f2f2;
+}
+
+thead td {
+  font-weight: bold;
+  padding: 10px;
+}
+
+tbody td {
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+tbody td:last-child {
+  text-align: center;
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+tbody tr:hover {
+  background-color: #73e192;
+  color: white;
+
+  a {
+    color: 4CAF50;
+  }
+}
+
+#container {
+  text-align: center; /* Center-align content */
+}
+
+#eventStatus {
+  font-size: 16px;
+  padding: 10px;
+  /* background-color: #f0f0f0; */
+   /* border-radius: 5px;  */
+  /* border: 1px solid #ccc; */
+  margin-bottom: 10px;
+}
+
+#eventToggle {
+  font-size: 14px;
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#eventToggle:hover {
+  background-color: #0056b3;
+}
+
+
+
+  </style>
+  </head>
+  <body>
+    <!-- ======= Header ======= -->
+    <header id="header" class="d-flex align-items-center">
+      <div class="container d-flex align-items-center justify-content-between">
+        <div class="logo">
+          <a href="levels.html"
+            ><img src="/assets/img/logo.png" alt="" class="img-fluid"
+          /></a>
+        </div>
+
+        <nav id="navbar" class="navbar">
+          <ul>
+            <li><a class="nav-link scrollto active" href="levels.html">Home</a></li>
+            <!-- <li><a class="nav-link scrollto active" href="#event_status">Event status</a></li> -->
+            <!-- <li><a class="nav-link scrollto" href="#about">About</a></li> -->
+            <!-- <li><a class="nav-link scrollto" href="#services">Services</a></li> -->
+            <li>
+              <!-- <a class="nav-link scrollto" href="#portfolio">Portfolio</a></li> -->
+              <!-- <li><a class="nav-link scrollto" href="#team">Team</a></li> -->
+              <!-- <li><a class="nav-link scrollto" href="#pricing">Pricing</a></li> -->
+            </li>
+
+            <!-- <li class="dropdown">
+              <a href="#"
+                ><span>ALL LEVELS SCORES</span>
+                <i class="bi bi-chevron-down"></i
+              ></a>
+              <ul class="sub-menu">
+                <li><a id="level1Link" href="">Level 1</a></li>
+                <li><a id="level2Link" href="">Level 2</a></li>
+                <li><a id="level3Link" href="">Level 3</a></li>
+              </ul>
+            </li>
+            <li
+              class="score-card"
+              style="
+                width: 100px;
+                margin-left: 10px;
+                height: 40px;
+                text-align: center;
+              "
+            >
+              <div id="score" style="margin-top: -2px">--</div>
+            </li> -->
+            <li>
+              <a class="nav-link scrollto" href="#" id="logout">logout</a>
+            </li>
+          </ul>
+          <!-- <li><a class="nav-link scrollto" href="#contact">Contact</a></li> -->
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav>
+        <!-- .navbar -->
+      </div>
+    </header>
+  </body>
+  <section id="card-section" style="align-items: center">
+    <!-- <div style="min-height: 10rem">
+      <h2 style="color: white; text-align: center">
+        hello,
+        <p id="profileEmail" style="display: inline"></p>👋</h2>
+        
+    </div> -->
+    <div class="table-container">
+      <table>
+        <thead>
+          <td>email</td>
+          <td>total point</td>
+          <!-- <td>view more details</td> -->
+        </thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+    </div>
+  </section>
+
+
+  <script>
+    const token = localStorage.getItem("token");
+    function logout() {
+      localStorage.removeItem("token");
+      window.location.href = "login.html";
+    }
+    document.getElementById("logout").addEventListener("click", logout);
+
+    if (!token) {
+      logout();
+    }
+
+     fetch("https://technova-backend.onrender.com/api/user/AllUser", {
+  headers: { authorization: token },
+}).then((r) => {
+  r.json().then((data) => {
+    console.log("data", data?.users);
+    const table = document.getElementById("tableBody");
+    const users = data?.users;
+
+    // total scores for each user and sort in descending order
+    const usersWithTotalScores = users?.map((user) => {
+      const total = user?.roundsCompleted?.reduce(
+        (prev, curr) => prev + curr.score,
+        0
+      );
+      return { ...user, total };
+    }).sort((a, b) => b.total - a.total);
+
+    // table rows for sorted users
+    usersWithTotalScores?.forEach((user) => {
+      const TR = document.createElement("tr");
+
+      const emailTD = document.createElement("td");
+      emailTD.innerText = user?.email;
+      TR.appendChild(emailTD);
+
+      const totalTD = document.createElement("td");
+      totalTD.innerText = user.total;
+      TR.appendChild(totalTD);
+
+      table.appendChild(TR);
+    });
+  });
+});
+
+
+  </script>
+
+</html>
+</html>

@@ -2114,6 +2114,7 @@ img {
 
 .login__form {
   position: relative;
+  /* display: flex; */
   margin-inline: 1.5rem;
   background-color: hsla(0, 0%, 100%, .01);
   border: 2px solid hsla(0, 0%, 100%, .7);
@@ -2121,6 +2122,11 @@ img {
   color: var(--white-color);
   border-radius: 1rem;
   backdrop-filter: blur(16px);
+  justify-content: center;
+}
+.Loginform{
+  justify-content: center;
+  text-align: center;
 }
 
 .login__title {
@@ -2367,3 +2373,30 @@ img {
         border: none;
         cursor: pointer;
       }
+      /* wave for emojies */
+      .wave {
+        animation-name: wave-animation;  /* Refers to the name of your @keyframes element below */
+        animation-duration: 2.5s;        /* Change to speed up or slow down */
+        animation-iteration-count: infinite;  /* Never stop waving :) */
+        transform-origin: 70% 70%;       /* Pivot around the bottom-left palm */
+        display: inline-block;
+      }
+      
+      @keyframes wave-animation {
+          0% { transform: rotate( 0.0deg) }
+         10% { transform: rotate(14.0deg) }  /* The following five values can be played with to make the waving more or less extreme */
+         20% { transform: rotate(-8.0deg) }
+         30% { transform: rotate(14.0deg) }
+         40% { transform: rotate(-4.0deg) }
+         50% { transform: rotate(10.0deg) }
+         60% { transform: rotate( 0.0deg) }  /* Reset for the last half to pause */
+        100% { transform: rotate( 0.0deg) }
+      }
+      
+      
+      
+      
+      /* For demonstration purposes only: */
+      /* body { font-size: 3.5em } */
+      /* h1 { font-size: 0.5em } */
+      /* end of wave */

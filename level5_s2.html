@@ -112,7 +112,7 @@
     <header id="header" class="d-flex align-items-center">
       <div class="container d-flex align-items-center justify-content-between">
         <div class="logo" style="padding-top: 10px; padding-left: 30px;">
-          <a href="index.html"
+          <a href="levels.html"
             ><img src="assets/img/logo.png" alt="" class="img-fluid"/></a>
         </div>
 
@@ -120,7 +120,7 @@
           <ul class="stageul" style="padding-top: -50px;">
             <li style="padding-right: 20px;"><button class="error-button" onclick="displayError()">Guid Lines</button></li>
             <li class="stageli"><a class="nav-link scrollto active" href="levels.html">Dashboard</a></li>
-            <li><a class="nav-link scrollto active" href="level4.html">Level 4</a></li>
+            <li><a class="nav-link scrollto active" href="level5.html">Level 5</a></li>
 
           </ul>
           <!-- <li><a class="nav-link scrollto" href="#contact">Contact</a></li> -->
@@ -157,7 +157,7 @@
         <!-- Verification form -->
         <div class="containerv">
           <form class="verification-form" id="codeVerificationForm">
-            <label for="verificationCode">Enter the verification code:</label>
+            <label for="verificationCode"><b>Enter the verification code:</b></label>
             <input
               type="text"
               id="verificationCode"
@@ -166,7 +166,7 @@
             />
             <!-- Display error message for wrong code -->
             <span id="errorMessage" style="color: red"></span>
-            <p>enter answer in format: insight{answer}</p>
+            <p>Enter answer in <b>insight{answer} </b>format</p>
             <button id="endTaskButton" class="redirect-button">End Task</button>
           </form>
         </div>
@@ -230,21 +230,21 @@
 <!-- -----------------END OF VARSHA CODE---------------------------------- -->
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-        var ideButton = document.getElementById("toggle-ide");
-        var ideIframe = document.getElementById("ide-iframe");
+        // var ideButton = document.getElementById("toggle-ide");
+        // var ideIframe = document.getElementById("ide-iframe");
 
-        ideButton.addEventListener("click", function (event) {
-          event.preventDefault(); // Prevent the default action of the link
-          toggleIframeVisibility();
-        });
+        // ideButton.addEventListener("click", function (event) {
+        //   event.preventDefault(); // Prevent the default action of the link
+        //   toggleIframeVisibility();
+        // });
 
-        function toggleIframeVisibility() {
-          if (ideIframe.style.display === "none") {
-            ideIframe.style.display = "block";
-          } else {
-            ideIframe.style.display = "none";
-          }
-        }
+        // function toggleIframeVisibility() {
+        //   if (ideIframe.style.display === "none") {
+        //     ideIframe.style.display = "block";
+        //   } else {
+        //     ideIframe.style.display = "none";
+        //   }
+        // }
 
         document
           .getElementById("codeVerificationForm")
@@ -252,7 +252,7 @@
             e.preventDefault();
             const formData = new FormData(e.currentTarget);
             const quizData = {};
-            quizData["level"] = 4;
+            quizData["level"] = 5;
             quizData["round"] = 2;
 
             formData.forEach((value, key) => {
@@ -281,7 +281,7 @@
                   return;
                 }
 
-                window.location.href = "level4.html";
+                window.location.href = "level5.html";
 
                 return;
               })
